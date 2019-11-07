@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LoginRegis</string>
+    <string name="app_name">FoodApp</string>
     <string name="username">Tên đăng nhập</string>
     <string name="password">Mật khẩu</string>
     <string name="login">Login</string>
