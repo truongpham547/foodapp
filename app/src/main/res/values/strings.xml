@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LoginRegis</string>
+    <string name="username">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="login">Login</string>
+    <string name="not_register">Not Register?</string>
+    <string name="register">Đăng ký</string>
+    <string name="confirm_pass">Xác nhận mậu khẩu</string>
+    <string name="reg">Register</string>
+    <string name="hint1"><font size="15">Tìm kiếm món ăn, tên địa điểm,...</font></string>
+</resources>

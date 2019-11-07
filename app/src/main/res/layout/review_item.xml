@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardviewDanhGia"
+        android:background="#fff"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/userAvatar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="#37000000"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="askjdhskjhksjdhsajkdh"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:id="@+id/userName"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/userRating"
+                    android:scaleX=".5"
+                    android:scaleY=".5"
+                    android:padding="0dp"
+                    android:transformPivotX="0dp"
+                    android:transformPivotY="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:theme="@style/RatingBar"
+                    style="?android:attr/ratingBarStyleIndicator"
+                    android:isIndicator="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4 tháng trước"
+                    android:id="@+id/ngaydang"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="something here"
+                android:textSize="15sp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/noidungReview"
+                android:textColor="#000"
+                />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#370E0D0D" />
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

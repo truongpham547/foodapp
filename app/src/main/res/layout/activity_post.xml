@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.PostActivity"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            app:title="Đề xuất đia điểm"
+            app:titleTextColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:background="@color/bgBottomNavigation"
+            android:id="@+id/toolbarDexuat">
+
+        </androidx.appcompat.widget.Toolbar>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="15sp"
+            android:text="Đăng"
+            android:id="@+id/btnDeXuat"
+            android:background="@color/bgBottomNavigation"
+            android:textColor="#fff"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/dexuatAva"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/useravatar"
+            app:civ_border_width="1dp"
+            app:civ_border_color="#37000000"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RIOT Báo Hồng"
+            android:textSize="15sp"
+            android:textColor="#000"
+            android:id="@+id/dexuatUser"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="#000">
+
+        <EditText
+            android:id="@+id/tendiadiem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_info_black_24dp"
+            android:hint="Tên địa điểm, quán ăn, nhà hàng, cafe,..."
+            android:inputType="text"
+            android:drawablePadding="10dp"
+            android:drawableTint="#000"
+            android:textColor="#000"
+            android:textColorHint="#000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="#000">
+
+        <EditText
+            android:id="@+id/diachidexuat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_place_black_24dp"
+            android:hint="Địa chỉ"
+            android:inputType="text"
+            android:drawablePadding="10dp"
+            android:drawableTint="#000"
+            android:textColor="#000"
+            android:textColorHint="#000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="#000">
+
+        <EditText
+            android:id="@+id/motachitiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_description_black_24dp"
+            android:hint="Mô tả chi tiết"
+            android:inputType="text"
+            android:drawablePadding="10dp"
+            android:drawableTint="#000"
+            android:textColor="#000"
+            android:textColorHint="#000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thêm ảnh"
+        android:textSize="20dp"
+        android:drawableRight="@drawable/ic_camera_alt_black_24dp"
+        android:textAlignment="center"
+        android:id="@+id/dexuatThemAnh"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/dexuatImage"
+
+        android:layout_margin="10dp"
+        android:scaleType="fitXY">
+    </ImageView>
+
+</LinearLayout>

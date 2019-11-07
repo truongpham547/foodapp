@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/avatarhientai"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chọn ảnh có sẵn"
+        android:textSize="20dp"
+        android:drawableRight="@drawable/ic_person_pin"
+       android:textAlignment="center"
+        android:id="@+id/chonanh"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chụp ảnh mới"
+        android:id="@+id/chupanh"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hủy"
+        android:id="@+id/huycapnhatanh"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        />
+
+
+</LinearLayout>

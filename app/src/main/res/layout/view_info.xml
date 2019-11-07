@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/useravatar"
+        android:id="@+id/view_avatar"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="#000">
+        <TextView android:id="@+id/view_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:textColorHint="#000"
+            android:textColor="#000"
+            android:drawableLeft="@drawable/name2"
+            android:drawableTint="#000"
+            android:inputType="textPersonName"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!-- Birthday Label -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:textColorHint="#000">
+
+        <TextView
+            android:focusable="false"
+            android:id="@+id/view_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/calendar"
+            android:clickable="true"
+
+            android:drawablePadding="10dp"
+            android:drawableTint="#000"
+            android:textColor="#000"
+            android:textColorHint="#000" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <!-- Phone number Label-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:textColorHint="#000">
+
+        <TextView
+            android:id="@+id/view_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/iconcall"
+            android:drawableTint="#000"
+
+            android:inputType="number"
+            android:textColor="#000"
+            android:textColorHint="#000" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:id="@+id/OK"
+        />
+
+
+</LinearLayout>

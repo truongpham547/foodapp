@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/br10"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="0dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <ImageView android:src="@drawable/f2"
+            android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:layout_marginBottom="2dp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Name Label -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/cardview_light_background">
+            <EditText android:id="@+id/nameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:textColorHint="@color/cardview_light_background"
+                android:textColor="@color/cardview_light_background"
+                android:drawableLeft="@drawable/name2"
+                android:drawableTint="@color/white"
+                android:inputType="textPersonName"
+                android:hint="Họ và tên" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Birthday Label -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/cardview_light_background">
+
+            <EditText
+                android:focusable="false"
+                android:id="@+id/birthdayText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/calendar"
+                android:clickable="true"
+                android:hint="Ngày sinh"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:textColor="@color/cardview_light_background"
+                android:textColorHint="@color/cardview_light_background" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Phone number Label-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/cardview_light_background">
+
+            <EditText
+                android:id="@+id/PhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/iconcall"
+                android:drawableTint="@color/white"
+                android:hint="Số điện thoại"
+                android:inputType="number"
+                android:textColor="@color/cardview_light_background"
+                android:textColorHint="@color/cardview_light_background" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Username Label -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/cardview_light_background">
+
+            <EditText
+                android:id="@+id/userText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/user"
+                android:hint="@string/username"
+                android:inputType="text"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:textColor="@color/cardview_light_background"
+                android:textColorHint="@color/cardview_light_background" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Password Label -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/cardview_light_background">
+            <EditText android:id="@+id/passText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/pass1"
+                android:textColorHint="@color/cardview_light_background"
+                android:textColor="@color/cardview_light_background"
+                android:inputType="textPassword"
+                android:drawableTint="@color/white"
+                android:hint="@string/password"
+                android:drawablePadding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Confirm Password Label -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColorHint="@color/cardview_light_background">
+            <EditText android:id="@+id/passConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/cardview_light_background"
+                android:textColor="@color/cardview_light_background"
+                android:inputType="textPassword"
+                android:drawableTint="@color/white"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/pass1"
+                android:hint="@string/confirm_pass"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Register Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/regBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:padding="12dp"
+            android:background="@drawable/custom_button"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:fontFamily=""
+            android:textSize="20dp"
+            android:text="@string/register"/>
+        <!-- if have account, just login-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Bạn đã có tài khoản?"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:id="@+id/notRegText"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:text="Đăng nhập"
+                android:textStyle="bold"
+                android:textColor="#FFC107"
+                android:textSize="20dp"
+                android:id="@+id/loginText"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

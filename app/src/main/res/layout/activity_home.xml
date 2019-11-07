@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.HomeActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="top"
+        android:background="@color/bgBottomNavigation"
+        android:id="@+id/toolbar">
+
+</androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textSize="15sp"
+        android:text="Đăng bài"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/btnDangBai"
+        android:background="@color/bgBottomNavigation"
+        android:textColor="#fff"
+        android:layout_alignParentRight="true"/>
+
+
+
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="top"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="4dp"
+            android:focusable="false"
+        android:background="@drawable/border2"
+        android:backgroundTint="@color/white"
+        android:paddingLeft="-15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        app:defaultQueryHint="true"
+        app:iconifiedByDefault="false"
+
+        app:queryHint="@string/hint1" />
+
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1E9E9"
+        android:layout_above="@+id/NavBot"
+        android:layout_below="@id/toolbar">
+    </FrameLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/NavBot"
+        app:labelVisibilityMode="unlabeled"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+
+        android:background="#fff"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@drawable/nav_item_color_state"
+        app:itemTextColor="@drawable/nav_item_color_state"
+
+        app:itemIconSize="25dp"
+
+
+
+        app:menu="@menu/menu_nav"
+        />
+
+
+</RelativeLayout>

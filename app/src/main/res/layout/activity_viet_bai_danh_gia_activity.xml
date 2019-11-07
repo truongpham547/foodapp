@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.VietBaiDanhGia_activity"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+        app:title="Tên địa điểm"
+        app:titleTextColor="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:background="@color/bgBottomNavigation"
+        android:id="@+id/diadiemdanhgia">
+
+        </androidx.appcompat.widget.Toolbar>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="15sp"
+            android:text="Đăng"
+            android:id="@+id/dangbtn"
+            android:background="@color/bgBottomNavigation"
+            android:textColor="#fff"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/danhgiaAva"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/useravatar"
+            app:civ_border_width="1dp"
+            app:civ_border_color="#37000000"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RIOT Báo Hồng"
+            android:textSize="15sp"
+            android:textColor="#000"
+            android:id="@+id/danhgiaUser"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/danhgiaRating"
+        android:layout_marginLeft="10dp"
+        android:theme="@style/RatingBar"/>
+   <com.google.android.material.textfield.TextInputEditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textSize="15sp"
+       android:hint="Chia sẻ trải nghiệm của bạn về địa điểm này"
+       android:id="@+id/danhgiaInput"
+       >
+
+
+   </com.google.android.material.textfield.TextInputEditText>
+
+
+
+
+</LinearLayout>
