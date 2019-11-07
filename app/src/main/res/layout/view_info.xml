@@ -1,84 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:gravity="center">
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/useravatar"
-        android:id="@+id/view_avatar"
-        />
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:textColorHint="#000">
-        <TextView android:id="@+id/view_name"
+        android:layout_height="wrap_content">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:textColorHint="#000"
-            android:textColor="#000"
-            android:drawableLeft="@drawable/name2"
-            android:drawableTint="#000"
-            android:inputType="textPersonName"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-    <!-- Birthday Label -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/useravatar"
+                android:id="@+id/view_avatar"
+                />
+            <TextView
+                android:id="@+id/view_name"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Họ tên user"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:textColorHint="#000">
-
-        <TextView
-            android:focusable="false"
-            android:id="@+id/view_date"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/calendar"
-            android:clickable="true"
-
-            android:drawablePadding="10dp"
-            android:drawableTint="#000"
-            android:textColor="#000"
-            android:textColorHint="#000" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <!-- Phone number Label-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:textColorHint="#000">
-
-        <TextView
-            android:id="@+id/view_phone"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_mail_light_blue_400_18dp"/>
+            <TextView
+                android:id="@+id/view_email"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="email@example.com"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:drawableLeft="@drawable/iconcall"
-            android:drawableTint="#000"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_phone_android_light_blue_400_18dp" />
+            <TextView
+                android:id="@+id/view_phone"
+                android:textStyle="bold"
 
-            android:inputType="number"
-            android:textColor="#000"
-            android:textColorHint="#000" />
-    </com.google.android.material.textfield.TextInputLayout>
-
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="+266 225 225"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_today_light_blue_400_18dp"/>
+            <TextView
+                android:id="@+id/view_date"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="Add to group"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OK"
-        android:textSize="20dp"
-        android:textAlignment="center"
         android:id="@+id/OK"
-        />
-
+        android:textColor="#fff"
+        android:background="@drawable/buttonstyle"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="OK"/>
 
 </LinearLayout>
