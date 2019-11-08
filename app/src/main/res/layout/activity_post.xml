@@ -58,60 +58,76 @@
     </LinearLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:textColorHint="#000">
-
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên địa điểm"
+            android:inputType="text"
             android:id="@+id/tendiadiem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_info_black_24dp"
-            android:hint="Tên địa điểm, quán ăn, nhà hàng, cafe,..."
-            android:inputType="text"
-            android:drawablePadding="10dp"
-            android:drawableTint="#000"
-            android:textColor="#000"
-            android:textColorHint="#000" />
+            >
+        </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:textColorHint="#000">
 
-        <EditText
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Đại chỉ"
+            android:inputType="text"
             android:id="@+id/diachidexuat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_place_black_24dp"
-            android:hint="Địa chỉ"
-            android:inputType="text"
-            android:drawablePadding="10dp"
-            android:drawableTint="#000"
-            android:textColor="#000"
-            android:textColorHint="#000" />
+            >
+        </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:textColorHint="#000">
 
-        <EditText
-            android:id="@+id/motachitiet"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_description_black_24dp"
-            android:hint="Mô tả chi tiết"
+            android:hint="Mô tả"
             android:inputType="text"
-            android:drawablePadding="10dp"
-            android:drawableTint="#000"
-            android:textColor="#000"
-            android:textColorHint="#000" />
+            android:id="@+id/motachitiet"
+            >
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textColorHint="#000">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mở cửa"
+            android:inputType="text"
+            >
+        </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:layout_width="match_parent"

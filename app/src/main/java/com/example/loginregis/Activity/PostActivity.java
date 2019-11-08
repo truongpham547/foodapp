@@ -51,9 +51,9 @@ public class PostActivity extends AppCompatActivity {
     CircleImageView ava;
     TextView usrName;
     ImageView imgDexuat;
-    EditText tendiadiem;
-    EditText diachi;
-    EditText mota;
+    TextInputEditText tendiadiem;
+    TextInputEditText diachi;
+    TextInputEditText mota;
     Button themAnh;
     Bitmap bitmap;
 
