@@ -133,7 +133,6 @@ public class fragmentUser extends Fragment {
             @Override
             public void onClick(View v) {
                 final Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Material_Light_Dialog_MinWidth);
-                dialog.setTitle("Đổi mật khẩu");
                 dialog.setContentView(R.layout.password_dialog);
 
 
@@ -406,7 +405,6 @@ public class fragmentUser extends Fragment {
             @Override
             public void onClick(View v) {
                 final Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Material_Light_Dialog_MinWidth);
-                dialog.setTitle("Cập nhật ảnh đại diện");
                 dialog.setContentView(R.layout.image_dialog);
                 Button anhcosan=dialog.findViewById(R.id.chonanh);
                 Button chupanh=dialog.findViewById(R.id.chupanh);
