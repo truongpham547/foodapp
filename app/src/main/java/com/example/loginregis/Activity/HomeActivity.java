@@ -43,6 +43,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
+    ProgressDialog progressDialog;
     private static final String TAG = "RegActivity";
     RecyclerView recyclerView;
     ArrayList<itemDiadiem> mangReview;
@@ -97,7 +98,7 @@ public class HomeActivity extends AppCompatActivity {
                 a=a.replace(' ','+');
                 //Toast.makeText(HomeActivity.this, a, Toast.LENGTH_SHORT).show();
                 //Toast.makeText(HomeActivity.this, "https://androidapp12.000webhostapp.com/getreview.php?search=mì+ý", Toast.LENGTH_SHORT).show();
-                final ProgressDialog progressDialog = new ProgressDialog(HomeActivity.this,
+                progressDialog = new ProgressDialog(HomeActivity.this,
                         R.style.Theme_AppCompat_DayNight_Dialog);
                 progressDialog.setIndeterminate(true);
                 progressDialog.setMessage("Đang xử lý...");
@@ -105,12 +106,6 @@ public class HomeActivity extends AppCompatActivity {
                 progressDialog.setCanceledOnTouchOutside(false);
                 Log.d(TAG,"Register");
                 GetKetQuaSearch(a);
-                new android.os.Handler().postDelayed(
-                        new Runnable() {
-                            public void run() {
-                                progressDialog.dismiss();
-                            }
-                        }, 3000);
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new fragmentHome(reviewAdapter,1)).commit();
                 mangReview.clear();
                 return true;
@@ -136,6 +131,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 if(response!=null)
                 {
+                    progressDialog.dismiss();
                     int ID=0;
                     double rating;
                     String diachi;
@@ -170,6 +166,7 @@ public class HomeActivity extends AppCompatActivity {
                             //Toast.makeText(HomeActivity.this,a,Toast.LENGTH_SHORT).show();
                             reviewAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
+                            progressDialog.dismiss();
                             e.printStackTrace();
                         }
                     }
@@ -180,7 +177,7 @@ public class HomeActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                progressDialog.dismiss();
             }
         });
 

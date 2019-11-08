@@ -36,6 +36,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginregis.Activity.HomeActivity;
+import com.example.loginregis.Activity.LoginActivity;
 import com.example.loginregis.Activity.RegActivity;
 import com.example.loginregis.Model.userProfile;
 import com.example.loginregis.R;
@@ -78,6 +79,23 @@ public class fragmentUser extends Fragment {
         usrname.setText(up.getHoten());
         final Dialog dialog;
 
+
+        ///////////////////////////
+        ///////////////////////////
+        ///////////////////////////
+        ///////////LOG OUT/////////
+        ///////////////////////////
+        ///////////////////////////
+        ///////////////////////////
+
+        TextView Dangxuat=rootView.findViewById(R.id.dangxuat);
+        Dangxuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
