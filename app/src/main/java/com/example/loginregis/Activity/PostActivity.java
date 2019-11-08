@@ -119,9 +119,7 @@ public class PostActivity extends AppCompatActivity {
                                 if(success.equals("1")){
                                     Toast.makeText(PostActivity.this,"Đăng thành công",Toast.LENGTH_SHORT).show();
 
-
                                 }
-
 
                                 else
                                     Toast.makeText(PostActivity.this,"Đăngt thất bại",Toast.LENGTH_SHORT).show();
@@ -170,8 +168,9 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final Dialog dialog = new Dialog(PostActivity.this);
-                dialog.setTitle("Hình ảnh cho địa điểm");
-                dialog.setContentView(R.layout.image_dialog);
+                dialog.setContentView(R.layout.image_review);
+                CircleImageView circleImageView2=dialog.findViewById(R.id.avatarhientai);
+
                 Button anhcosan=dialog.findViewById(R.id.chonanh);
                 Button chupanh=dialog.findViewById(R.id.chupanh);
 

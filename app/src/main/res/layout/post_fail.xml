@@ -17,7 +17,7 @@
         <TextView
             android:id="@+id/toast_text"
             android:text="Đăng bài thất bại!"
-            android:drawableLeft="@drawable/x16px"
+            android:drawableLeft="@drawable/ic_clear_black_18dp"
             android:drawableTint="@color/white"
             android:drawablePadding="5dp"
             android:textSize="17dp"
