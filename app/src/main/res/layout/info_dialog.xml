@@ -6,75 +6,83 @@
     android:gravity="center"
     >
     <!-- Name Label -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:textColorHint="#000">
-        <EditText android:id="@+id/nameChange"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:textColorHint="#000"
-            android:textColor="#000"
-            android:drawableLeft="@drawable/name2"
-            android:drawableTint="#000"
-            android:inputType="textPersonName"
-             />
-    </com.google.android.material.textfield.TextInputLayout>
-    <!-- Birthday Label -->
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:textColorHint="#000">
-
-        <EditText
-            android:focusable="false"
-            android:id="@+id/dateChange"
+        android:theme="@style/TextLabel"
+        android:textColorHint="#4bb6ef">
+        <EditText android:id="@+id/nameChange"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/calendar"
-            android:clickable="true"
-
-            android:drawablePadding="10dp"
-            android:drawableTint="#000"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_credit_card_black_36dp"
             android:textColor="#000"
-            android:textColorHint="#000" />
+            android:drawableTint="#4bb6ef"
+            android:drawablePadding="10dp"/>
     </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Birthday Label -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:theme="@style/TextLabel"
+        android:textColorHint="#4bb6ef">
+        <EditText android:id="@+id/dateChange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_today_black_36dp"
+            android:textColor="#000"
+            android:drawableTint="#4bb6ef"
+            android:drawablePadding="10dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
     <!-- Phone number Label-->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:textColorHint="#000">
-
-        <EditText
-            android:id="@+id/phoneChange"
+        android:theme="@style/TextLabel"
+        android:textColorHint="#4bb6ef">
+        <EditText android:id="@+id/phoneChange"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:drawableLeft="@drawable/iconcall"
-            android:drawableTint="#000"
-
-            android:inputType="number"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_phone_android_black_36dp"
             android:textColor="#000"
-            android:textColorHint="#000" />
+            android:drawableTint="#4bb6ef"
+            android:drawablePadding="10dp"/>
     </com.google.android.material.textfield.TextInputLayout>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hủy"
-        android:id="@+id/cancelInfoChange"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Thay đổi"
-        android:id="@+id/changeInfo"
-        />
 
+    <Button
+        android:id="@+id/cancelInfoChange"
+        android:textColor="#fff"
+        android:background="@drawable/buttonstyle"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hủy"/>
+    <Button
+        android:id="@+id/changeInfo"
+        android:textColor="#fff"
+        android:background="@drawable/buttonstyle"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="thay đổi"/>
 
 </LinearLayout>

@@ -45,12 +45,8 @@
             android:paddingLeft="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:layout_marginLeft="15dp"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_mail_light_blue_400_18dp"/>
             <TextView
+                android:drawableLeft="@drawable/ic_mail_light_blue_400_18dp"
                 android:id="@+id/view_email"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
@@ -65,12 +61,8 @@
             android:paddingLeft="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:layout_marginLeft="15dp"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_phone_android_light_blue_400_18dp" />
             <TextView
+                android:drawableLeft="@drawable/ic_phone_android_light_blue_400_18dp"
                 android:id="@+id/view_phone"
                 android:textStyle="bold"
 
@@ -86,19 +78,16 @@
             android:paddingLeft="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:layout_marginLeft="15dp"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_today_light_blue_400_18dp"/>
+
             <TextView
+                android:drawableLeft="@drawable/ic_today_light_blue_400_18dp"
                 android:id="@+id/view_date"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
-                android:text="Add to group"/>
+                android:text="1/1/1999"/>
         </LinearLayout>
     </LinearLayout>
 

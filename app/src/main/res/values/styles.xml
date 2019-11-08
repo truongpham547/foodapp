@@ -15,9 +15,9 @@
     <style name="TextLabel" parent="TextAppearance.AppCompat">
         <item name="android:textColorHint">#4bb6ef</item>
         <item name="colorAccent">#4bb6ef</item>
-        <item name="android:colorControlActivated">#0697DF</item>
+        <item name="android:colorControlActivated">#4bb6ef</item>
         <item name="colorControlNormal">#4bb6ef</item>
-        <item name="colorControlActivated">#0697DF</item>
+        <item name="colorControlActivated">#4bb6ef</item>
     </style>
 
 </resources>

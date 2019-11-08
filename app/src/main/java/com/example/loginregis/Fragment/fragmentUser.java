@@ -246,7 +246,6 @@ public class fragmentUser extends Fragment {
             @Override
             public void onClick(View v) {
                 final Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Material_Light_Dialog_MinWidth);
-                dialog.setTitle("Đổi thông tin");
                 dialog.setContentView(R.layout.info_dialog);
 
 
