@@ -146,7 +146,7 @@ public class ChiTietActivity extends AppCompatActivity {
         final int idrv=brv.getID();
 
 
-        StringRequest stringRequest= new StringRequest(Request.Method.POST, "https://androidapp12.000webhostapp.com/savereview.php", new Response.Listener<String>() {
+        StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.230.70.150/android/savereview.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
