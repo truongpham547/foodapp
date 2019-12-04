@@ -190,7 +190,7 @@ public class fragmentUser extends Fragment {
                         }
                         if(valid)
                         {
-                            StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.230.70.150/android/updateprofile.php", new Response.Listener<String>() {
+                            StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/updateprofile.php", new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
                                     try{
@@ -343,7 +343,7 @@ public class fragmentUser extends Fragment {
                         }
                         if(valid)
                         {
-                            StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.230.70.150/android/updateprofile.php", new Response.Listener<String>() {
+                            StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/updateprofile.php", new Response.Listener<String>() {
 
 
                                 @Override
@@ -476,7 +476,7 @@ public class fragmentUser extends Fragment {
                 bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
                 byte[] imgbytes=byteArrayOutputStream.toByteArray();
                 final String imgPost= Base64.encodeToString(imgbytes,Base64.DEFAULT);
-                StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.230.70.150/android/updateprofile.php", new Response.Listener<String>() {
+                StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/updateprofile.php", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try{
@@ -513,7 +513,7 @@ public class fragmentUser extends Fragment {
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String,String> param=new HashMap<>();
                         param.put("username",up.getUsrname());
-                        up.setAva("http://52.230.70.150/android/avatar/"+up.getUsrname()+".jpg");
+                        up.setAva("http://52.148.113.133/android/avatar/"+up.getUsrname()+".jpg");
                         param.put("ava",imgPost);
                         return param;
                     }
@@ -537,7 +537,7 @@ public class fragmentUser extends Fragment {
             bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
             byte[] imgbytes=byteArrayOutputStream.toByteArray();
             final String imgPost= Base64.encodeToString(imgbytes,Base64.DEFAULT);
-            StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.230.70.150/android/updateprofile.php", new Response.Listener<String>() {
+            StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/updateprofile.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try{
@@ -573,7 +573,7 @@ public class fragmentUser extends Fragment {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String,String> param=new HashMap<>();
                     param.put("username",up.getUsrname());
-                    up.setAva("http://52.230.70.150/android/avatar/"+up.getUsrname()+".jpg");
+                    up.setAva("http://52.148.113.133/android/avatar/"+up.getUsrname()+".jpg");
                     param.put("ava",imgPost);
                     return param;
                 }

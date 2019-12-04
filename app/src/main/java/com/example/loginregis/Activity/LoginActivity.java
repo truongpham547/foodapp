@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText editTextPass;
     TextView textViewReg;
     Button btnLogin;
-    String URL_REGIST="http://52.230.70.150/android/login.php";
+    String URL_REGIST="http://52.148.113.133/android/login.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

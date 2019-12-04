@@ -107,7 +107,7 @@ public class PostActivity extends AppCompatActivity {
                 }
                 if(valid)
                 {
-                    StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.230.70.150/android/postreview.php", new Response.Listener<String>() {
+                    StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/postreview.php", new Response.Listener<String>() {
 
 
                         @Override

@@ -63,7 +63,7 @@ public class userProfile implements Serializable {
         this.hoten = hoten;
         this.ngaysinh = ngaysinh;
         this.sdt = sdt;
-        this.ava = "http://52.230.70.150/android/avatar/"+ava;
+        this.ava = "http://52.148.113.133/android/avatar/"+ava;
         this.usrname = usrname;
     }
 }

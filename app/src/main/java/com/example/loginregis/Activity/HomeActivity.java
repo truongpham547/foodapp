@@ -124,7 +124,7 @@ public class HomeActivity extends AppCompatActivity {
     private void GetKetQuaSearch(String keyword) {
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
 
-        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.230.70.150/android/getreview.php?search="+keyword, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php?search="+keyword, new Response.Listener<JSONArray>() {
 
             @Override
             public void onResponse(JSONArray response) {
@@ -142,7 +142,7 @@ public class HomeActivity extends AppCompatActivity {
                     Date date=Date.valueOf(str);
                     String hinhanhtemp="";
 
-                    String hinhanh="http://52.230.70.150/android/hinhanh/";
+                    String hinhanh="http://52.148.113.133/android/hinhanh/";
                     //Toast.makeText(HomeActivity.this, "here " +response.length(), Toast.LENGTH_SHORT).show();
                     for(int i=0;i<response.length();i++)
                     {
@@ -188,7 +188,7 @@ public class HomeActivity extends AppCompatActivity {
     private void GetBaiReviewMoiNhat() { //Lấy dữ liệu từ Json cho vào mảng
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
 
-        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.230.70.150/android/getreview.php", new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 if(response!=null)
@@ -203,7 +203,7 @@ public class HomeActivity extends AppCompatActivity {
                     Date date=Date.valueOf(str);
                     String hinhanhtemp="";
 
-                    String hinhanh="http://52.230.70.150/android/hinhanh/";
+                    String hinhanh="http://52.148.113.133/android/hinhanh/";
 
                     for(int i=0;i<response.length();i++)
                     {
@@ -305,7 +305,7 @@ public class HomeActivity extends AppCompatActivity {
     private void GetBaiDaDang() {
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
 
-        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.230.70.150/android/getreview.php?username="+userProfile.getUsrname(), new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php?username="+userProfile.getUsrname(), new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 if(response!=null)
@@ -320,7 +320,7 @@ public class HomeActivity extends AppCompatActivity {
                     Date date=Date.valueOf(str);
                     String hinhanhtemp="";
 
-                    String hinhanh="http://52.230.70.150/android/hinhanh/";
+                    String hinhanh="http://52.148.113.133/android/hinhanh/";
 
                     for(int i=0;i<response.length();i++)
                     {
@@ -364,7 +364,7 @@ public class HomeActivity extends AppCompatActivity {
     private void GetBaiDaLuu() {
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
 
-        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.230.70.150/android/getreview.php?getsave&username="+userProfile.getUsrname(), new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php?getsave&username="+userProfile.getUsrname(), new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 if(response!=null)
@@ -379,7 +379,7 @@ public class HomeActivity extends AppCompatActivity {
                     Date date=Date.valueOf(str);
                     String hinhanhtemp="";
 
-                    String hinhanh="http://52.230.70.150/android/hinhanh/";
+                    String hinhanh="http://52.148.113.133/android/hinhanh/";
 
                     for(int i=0;i<response.length();i++)
                     {

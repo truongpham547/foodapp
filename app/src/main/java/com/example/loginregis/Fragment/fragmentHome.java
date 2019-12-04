@@ -90,7 +90,7 @@ public class fragmentHome extends Fragment {
                 RequestQueue requestQueue= Volley.newRequestQueue(getContext());
 
 
-                JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.230.70.150/android/getreview.php", new Response.Listener<JSONArray>() {
+                JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php", new Response.Listener<JSONArray>() {
 
                     @Override
                     public void onResponse(JSONArray response) {
@@ -107,7 +107,7 @@ public class fragmentHome extends Fragment {
                             Date date=Date.valueOf(str);
                             String hinhanhtemp="";
 
-                            String hinhanh="http://52.230.70.150/android/hinhanh/";
+                            String hinhanh="http://52.148.113.133/android/hinhanh/";
                             //Toast.makeText(HomeActivity.this, "here " +response.length(), Toast.LENGTH_SHORT).show();
                             for(int i=0;i<response.length();i++)
                             {
@@ -163,7 +163,7 @@ public class fragmentHome extends Fragment {
                 RequestQueue requestQueue= Volley.newRequestQueue(getContext());
                 recyclerView.setAdapter(ra2);
 
-                JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.230.70.150/android/getreview.php?trending", new Response.Listener<JSONArray>() {
+                JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php?trending", new Response.Listener<JSONArray>() {
 
                     @Override
                     public void onResponse(JSONArray response) {
@@ -180,7 +180,7 @@ public class fragmentHome extends Fragment {
                             Date date=Date.valueOf(str);
                             String hinhanhtemp="";
 
-                            String hinhanh="http://52.230.70.150/android/hinhanh/";
+                            String hinhanh="http://52.148.113.133/android/hinhanh/";
                             //Toast.makeText(getContext(), "here " +response.length(), Toast.LENGTH_SHORT).show();
                             for(int i=0;i<response.length();i++)
                             {

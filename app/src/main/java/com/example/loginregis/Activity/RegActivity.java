@@ -54,7 +54,7 @@ public class RegActivity extends AppCompatActivity {
 
     private DatePickerDialog.OnDateSetListener birthdayListener;
     Button btnReg;
-    String URL_REGIST="http://52.230.70.150/android/register.php";
+    String URL_REGIST="http://52.148.113.133/android/register.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

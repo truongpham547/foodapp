@@ -146,7 +146,7 @@ public class ChiTietActivity extends AppCompatActivity {
         final int idrv=brv.getID();
 
 
-        StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.230.70.150/android/savereview.php", new Response.Listener<String>() {
+        StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/savereview.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
@@ -228,7 +228,7 @@ public class ChiTietActivity extends AppCompatActivity {
     private void getBinhLuan() {
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
 
-        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.230.70.150/android/getrating.php?id="+id, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getrating.php?id="+id, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 if(response!=null)
@@ -255,7 +255,7 @@ public class ChiTietActivity extends AppCompatActivity {
 
 
                             postDate=jsonObject.getString("ngaydang");
-                            hinhanh="http://52.230.70.150/android/avatar/"+jsonObject.getString("ava");
+                            hinhanh="http://52.148.113.133/android/avatar/"+jsonObject.getString("ava");
                             userRating=jsonObject.getDouble("rating");
 
 

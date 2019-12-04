@@ -157,7 +157,7 @@ public class VietBaiDanhGia_activity extends AppCompatActivity {
         final int idrv=brv.getID();
         final float userrating=ratingBar.getRating();
         final String noidung=noidungdanhgia.getText().toString();
-        StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.230.70.150/android/postrating.php", new Response.Listener<String>() {
+        StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/postrating.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
