@@ -1,5 +1,7 @@
 package com.example.loginregis.Fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +62,7 @@ public class fragmentSaved extends Fragment {
 
         recyclerView.setAdapter(ra1);
         if(ra1.getItemCount()!=0) check.setText("");
+
         return rootView;
     }
 }

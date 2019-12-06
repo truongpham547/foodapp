@@ -20,9 +20,20 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:textSize="15sp"
-        android:text="Đăng bài"
+        android:text="Đề Xuất"
         android:layout_marginLeft="10dp"
         android:id="@+id/btnDangBai"
+        android:background="@color/bgBottomNavigation"
+        android:textColor="#fff"
+        android:layout_alignParentRight="true"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textSize="15sp"
+        android:text="Xóa"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone"
+        android:id="@+id/XoaBai"
         android:background="@color/bgBottomNavigation"
         android:textColor="#fff"
         android:layout_alignParentRight="true"/>

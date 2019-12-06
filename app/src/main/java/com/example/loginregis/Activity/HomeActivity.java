@@ -64,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
         Dangbai.setVisibility(View.GONE);
         mangReview=new ArrayList<>();
         mangsavedReview=new ArrayList<>();
-        savedAdapter=new diadiemsavedAdapter(getApplicationContext(),mangsavedReview,userProfile);
+        savedAdapter=new diadiemsavedAdapter(HomeActivity.this,mangsavedReview,userProfile);
         reviewAdapter=new diadiemAdapter(getApplicationContext(),mangReview,userProfile);
         GetBaiReviewMoiNhat();
         sw=findViewById(R.id.searchView);
@@ -257,6 +257,7 @@ public class HomeActivity extends AppCompatActivity {
                 mangsavedReview.clear();
                 mangReview.clear();
                 sw.setVisibility(View.VISIBLE);
+                savedAdapter.setCheckFragment(0);
                 GetBaiReviewMoiNhat();
                 selectedFragment=new fragmentHome(reviewAdapter,0); //truyền adapter vào cho recyleview trong fragment home
             }
@@ -268,6 +269,7 @@ public class HomeActivity extends AppCompatActivity {
                 homeTB.setTitleTextColor(-1);
                 mangReview.clear();
                 mangsavedReview.clear();
+                savedAdapter.setCheckFragment(1);
                 GetBaiDaLuu();
                 //Toast.makeText(HomeActivity.this, "asd"+mangsavedReview.size(), Toast.LENGTH_SHORT).show();
                 selectedFragment=new fragmentSaved(mangReview.size(),savedAdapter);
@@ -275,6 +277,7 @@ public class HomeActivity extends AppCompatActivity {
             }
             if(menuItem.getItemId()==R.id.nav_user)
             {
+                savedAdapter.setCheckFragment(0);
                 //Toast.makeText(HomeActivity.this, userProfile.getNgaysinh(), Toast.LENGTH_SHORT).show();
                 sw.setVisibility(View.GONE);
                 homeTB.setTitle("Tài khoản");
@@ -287,6 +290,7 @@ public class HomeActivity extends AppCompatActivity {
             }
             if(menuItem.getItemId()==R.id.nav_post)
             {
+                savedAdapter.setCheckFragment(2);
                 mangReview.clear();
                 mangsavedReview.clear();
                 homeTB.setTitle("Bài đã đăng");

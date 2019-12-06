@@ -24,6 +24,11 @@ public class diadiemAdapter extends RecyclerView.Adapter<diadiemAdapter.itemHold
     Context context;
     ArrayList<itemDiadiem> arrayReview;
     public userProfile up;
+    int checkFragment=0;
+
+    public void setCheckFragment(int checkFragment) {
+        this.checkFragment = checkFragment;
+    }
 
     public diadiemAdapter(Context context, ArrayList<itemDiadiem> arrayReview, userProfile up) {
         this.context = context;
@@ -81,6 +86,7 @@ public class diadiemAdapter extends RecyclerView.Adapter<diadiemAdapter.itemHold
                 @Override
                 public void onClick(View v) {
                     Intent intent =new Intent(context, ChiTietActivity.class);
+
                    intent.putExtra("chitiet",arrayReview.get(getAdapterPosition()));
 
                    intent.putExtra("userprofile",up);
