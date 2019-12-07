@@ -10,7 +10,7 @@ public class userProfile implements Serializable {
     public String sdt;
     public String ava;
     public String usrname;
-
+    public  String token;
     public userProfile() {
     }
 
@@ -21,6 +21,10 @@ public class userProfile implements Serializable {
     public userProfile setHoten(String hoten) {
         this.hoten = hoten;
         return this;
+    }
+
+    public String getToken() {
+        return token;
     }
 
     public String getNgaysinh() {
@@ -59,11 +63,12 @@ public class userProfile implements Serializable {
         return this;
     }
 
-    public userProfile(String hoten, String ngaysinh, String sdt, String ava, String usrname) {
+    public userProfile(String hoten, String ngaysinh, String sdt, String ava, String usrname,String token) {
         this.hoten = hoten;
         this.ngaysinh = ngaysinh;
         this.sdt = sdt;
         this.ava = "http://52.148.113.133/android/avatar/"+ava;
         this.usrname = usrname;
+        this.token=token;
     }
 }

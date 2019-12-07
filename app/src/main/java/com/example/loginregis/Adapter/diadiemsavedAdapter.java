@@ -126,6 +126,10 @@ public class diadiemsavedAdapter extends RecyclerView.Adapter<diadiemsavedAdapte
                                     {
                                         LuuDiaDiem1(arrayReview.get(getAdapterPosition()).ID);
                                     }
+                                    else if (checkFragment==2)
+                                    {
+                                        LuuDiaDiem2(arrayReview.get(getAdapterPosition()).ID);
+                                    }
                                     arrayReview.remove(delete_item);
                                     notifyItemRemoved(delete_item);
                                     dialog.cancel();
@@ -228,6 +232,14 @@ public class diadiemsavedAdapter extends RecyclerView.Adapter<diadiemsavedAdapte
 
                 return params;
             }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+
+                headers.put("Content-Type", "application/x-www-form-urlencoded");
+                headers.put("Authorization", "Bearer " + up.getToken());
+                return headers;
+            }
         };
         RequestQueue requestQueue= Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
@@ -242,9 +254,9 @@ public class diadiemsavedAdapter extends RecyclerView.Adapter<diadiemsavedAdapte
 
         final String un=up.getUsrname();
         final int idrv=id;
+        Toast.makeText(context, up.getToken(), Toast.LENGTH_SHORT).show();
 
-
-        StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/savereview.php", new Response.Listener<String>() {
+        StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/delreview.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
@@ -313,12 +325,22 @@ public class diadiemsavedAdapter extends RecyclerView.Adapter<diadiemsavedAdapte
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params=new HashMap<>();
-                params.put("username",un);
+
                 params.put("idreview",String.valueOf(idrv));
-                params.put("delete","1");
+
 
                 return params;
             }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+
+                headers.put("Content-Type", "application/x-www-form-urlencoded");
+                headers.put("Authorization", "Bearer "+up.getToken());
+                return headers;
+            }
+
+
         };
         RequestQueue requestQueue= Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);

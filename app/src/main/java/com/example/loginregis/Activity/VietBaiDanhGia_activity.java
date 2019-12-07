@@ -214,6 +214,14 @@ public class VietBaiDanhGia_activity extends AppCompatActivity {
                 params.put("rating",String.valueOf(userrating));
                 return params;
             }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+
+                headers.put("Content-Type", "application/x-www-form-urlencoded");
+                headers.put("Authorization", "Bearer " + userInfo.getToken());
+                return headers;
+            }
         };
         RequestQueue requestQueue= Volley.newRequestQueue(VietBaiDanhGia_activity.this);
         requestQueue.add(stringRequest);

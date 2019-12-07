@@ -392,6 +392,14 @@ public class fragmentUser extends Fragment {
                                     up.setNgaysinh(date);
                                     return params;
                                 }
+                                @Override
+                                public Map<String, String> getHeaders() throws AuthFailureError {
+                                    HashMap<String, String> headers = new HashMap<String, String>();
+
+                                    headers.put("Content-Type", "application/x-www-form-urlencoded");
+                                    headers.put("Authorization", "Bearer " + up.getToken());
+                                    return headers;
+                                }
                             };
                             RequestQueue requestQueue= Volley.newRequestQueue(getContext());
                             requestQueue.add(stringRequest);
@@ -517,6 +525,14 @@ public class fragmentUser extends Fragment {
                         param.put("ava",imgPost);
                         return param;
                     }
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        HashMap<String, String> headers = new HashMap<String, String>();
+
+                        headers.put("Content-Type", "application/x-www-form-urlencoded");
+                        headers.put("Authorization", "Bearer " + up.getToken());
+                        return headers;
+                    }
                 };
 
                 RequestQueue requestQueue= Volley.newRequestQueue(getContext());
@@ -576,6 +592,14 @@ public class fragmentUser extends Fragment {
                     up.setAva("http://52.148.113.133/android/avatar/"+up.getUsrname()+".jpg");
                     param.put("ava",imgPost);
                     return param;
+                }
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    HashMap<String, String> headers = new HashMap<String, String>();
+
+                    headers.put("Content-Type", "application/x-www-form-urlencoded");
+                    headers.put("Authorization", "Bearer " + up.getToken());
+                    return headers;
                 }
             };
 

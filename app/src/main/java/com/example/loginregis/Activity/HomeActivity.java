@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -41,6 +42,8 @@ import org.json.JSONObject;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
@@ -106,7 +109,7 @@ public class HomeActivity extends AppCompatActivity {
                 progressDialog.setCanceledOnTouchOutside(false);
                 Log.d(TAG,"Register");
                 GetKetQuaSearch(a);
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new fragmentHome(reviewAdapter,1)).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new fragmentHome(reviewAdapter,1,userProfile)).commit();
                 mangReview.clear();
                 return true;
             }
@@ -179,7 +182,17 @@ public class HomeActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
             }
-        });
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+
+                headers.put("Content-Type", "application/x-www-form-urlencoded");
+                headers.put("Authorization", "Bearer " + userProfile.getToken());
+                return headers;
+            }
+        };
 
         requestQueue.add(jsonArrayRequest);
 
@@ -239,7 +252,16 @@ public class HomeActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+
+                headers.put("Content-Type", "application/x-www-form-urlencoded");
+                headers.put("Authorization", "Bearer " + userProfile.getToken());
+                return headers;
+            }
+        };
 
         requestQueue.add(jsonArrayRequest);
     }
@@ -259,7 +281,7 @@ public class HomeActivity extends AppCompatActivity {
                 sw.setVisibility(View.VISIBLE);
                 savedAdapter.setCheckFragment(0);
                 GetBaiReviewMoiNhat();
-                selectedFragment=new fragmentHome(reviewAdapter,0); //truyền adapter vào cho recyleview trong fragment home
+                selectedFragment=new fragmentHome(reviewAdapter,0,userProfile); //truyền adapter vào cho recyleview trong fragment home
             }
             if (menuItem.getItemId()==R.id.nav_save)
             {
@@ -360,7 +382,17 @@ public class HomeActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-        });
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+
+                headers.put("Content-Type", "application/x-www-form-urlencoded");
+                headers.put("Authorization", "Bearer "+userProfile.getToken());
+                return headers;
+            }
+        };
 
         requestQueue.add(jsonArrayRequest);
     }
@@ -419,7 +451,17 @@ public class HomeActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-        });
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+
+                headers.put("Content-Type", "application/x-www-form-urlencoded");
+                headers.put("Authorization", "Bearer " + userProfile.getToken());
+                return headers;
+            }
+        };
 
         requestQueue.add(jsonArrayRequest);
     }

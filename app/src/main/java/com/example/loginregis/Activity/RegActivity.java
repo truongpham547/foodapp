@@ -242,9 +242,9 @@ public class RegActivity extends AppCompatActivity {
                     String success=jsonObject.getString("success");
                     if(success.equals("1")){
                         Toast.makeText(RegActivity.this,"Đăng Ký Thành Công",Toast.LENGTH_SHORT).show();
-                        Intent homeIntent=new Intent(RegActivity.this, HomeActivity.class);
-                        userProfile userProfile=new userProfile(hoten,ngaysinh,sdt,ava,usrname);
-                        homeIntent.putExtra("userprofile",userProfile);
+                        Intent homeIntent=new Intent(RegActivity.this, LoginActivity.class);
+
+
                         startActivity(homeIntent);
                         new android.os.Handler().postDelayed(
                                 new Runnable() {

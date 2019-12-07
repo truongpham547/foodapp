@@ -220,6 +220,14 @@ public class ChiTietActivity extends AppCompatActivity {
 
                 return params;
             }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+
+                headers.put("Content-Type", "application/x-www-form-urlencoded");
+                headers.put("Authorization", "Bearer " + userProfile.getToken());
+                return headers;
+            }
         };
         RequestQueue requestQueue= Volley.newRequestQueue(ChiTietActivity.this);
         requestQueue.add(stringRequest);
@@ -276,7 +284,18 @@ public class ChiTietActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-        });
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+
+                headers.put("Content-Type", "application/x-www-form-urlencoded");
+                headers.put("Authorization", "Bearer "+userProfile.getToken());
+                return headers;
+            }
+
+        };
 
         requestQueue.add(jsonArrayRequest);
     }

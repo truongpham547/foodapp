@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,6 +22,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginregis.Adapter.diadiemAdapter;
 import com.example.loginregis.Model.itemDiadiem;
+import com.example.loginregis.Model.userProfile;
 import com.example.loginregis.R;
 
 import org.json.JSONArray;
@@ -29,15 +31,19 @@ import org.json.JSONObject;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class fragmentHome extends Fragment {
     public diadiemAdapter ra;
     public diadiemAdapter ra2;
 
-    public fragmentHome(diadiemAdapter ra, int key) {
+    public fragmentHome(diadiemAdapter ra, int key,userProfile up) {
         this.ra = ra;
         this.key = key;
+        this.up=up;
     }
+    userProfile up;
 
     int key;
 
@@ -143,7 +149,17 @@ public class fragmentHome extends Fragment {
                     public void onErrorResponse(VolleyError error) {
 
                     }
-                });
+                })
+                {
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        HashMap<String, String> headers = new HashMap<String, String>();
+
+                        headers.put("Content-Type", "application/x-www-form-urlencoded");
+                        headers.put("Authorization", "Bearer " + up.getToken());
+                        return headers;
+                    }
+                };
 
                 requestQueue.add(jsonArrayRequest);
 
@@ -216,7 +232,17 @@ public class fragmentHome extends Fragment {
                     public void onErrorResponse(VolleyError error) {
 
                     }
-                });
+                })
+                {
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        HashMap<String, String> headers = new HashMap<String, String>();
+
+                        headers.put("Content-Type", "application/x-www-form-urlencoded");
+                        headers.put("Authorization", "Bearer " + up.getToken());
+                        return headers;
+                    }
+                };
 
                 requestQueue.add(jsonArrayRequest);
 

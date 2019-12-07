@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText editTextPass;
     TextView textViewReg;
     Button btnLogin;
+    String token;
     String URL_REGIST="http://52.148.113.133/android/login.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,15 +191,18 @@ public class LoginActivity extends AppCompatActivity {
                     if(success.equals("1")){
                         JSONArray infoArray=jsonObject.getJSONArray("info");
                         JSONObject info=infoArray.getJSONObject(0);
+                        token=jsonObject.getString("token");
                         Intent homeIntent=new Intent(LoginActivity.this, HomeActivity.class);
                         userProfile userProfile=new userProfile(info.getString("hoten"),info.getString("ngaysinh"),info.getString("sdt"),
-                                info.getString("ava"),info.getString("username"));
+                                info.getString("ava"),info.getString("username"),token);
+                        //Toast.makeText(LoginActivity.this, token, Toast.LENGTH_SHORT).show();
                         homeIntent.putExtra("userprofile",userProfile);
 //                        homeIntent.putExtra("hoten",info.getString("hoten"));
 //                        homeIntent.putExtra("ngaysinh",info.getString("ngaysinh"));
 //                        homeIntent.putExtra("sdt",info.getString("sdt"));
 //                        homeIntent.putExtra("ava",info.getString("ava"));
 //                        homeIntent.putExtra("username",info.getString("username"));
+
 
 
 
