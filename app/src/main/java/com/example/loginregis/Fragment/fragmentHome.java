@@ -37,13 +37,19 @@ import java.util.Map;
 public class fragmentHome extends Fragment {
     public diadiemAdapter ra;
     public diadiemAdapter ra2;
+    public String area;
 
-    public fragmentHome(diadiemAdapter ra, int key,userProfile up) {
+    public void setUp(userProfile up) {
+        this.up = up;
+    }
+
+    public fragmentHome(diadiemAdapter ra, int key, userProfile up,String area) {
         this.ra = ra;
         this.key = key;
         this.up=up;
+        this.area=area;
     }
-    userProfile up;
+    public userProfile up;
 
     int key;
 
@@ -69,6 +75,7 @@ public class fragmentHome extends Fragment {
         Moinhat=rootView.findViewById(R.id.moinhat);
         Danghot=rootView.findViewById(R.id.danghot);
         Gantoi=rootView.findViewById(R.id.gantoi);
+
         if(key==1)
         {
             Moinhat.setTypeface(null, Typeface.NORMAL);
@@ -78,17 +85,19 @@ public class fragmentHome extends Fragment {
         }
         final ArrayList<itemDiadiem> mangReview;
         mangReview=new ArrayList<>();
-        ra2=new diadiemAdapter(getContext(),mangReview);
+        ra2=new diadiemAdapter(getContext(),mangReview,up);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
 
         recyclerView.setAdapter(ra);
+
         Moinhat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mangReview.clear();
-
-
+                String temp=area;
+                String a=area.replace(' ','+');
+                area=temp;
                 recyclerView.setAdapter(ra2);
                 Moinhat.setTypeface(null, Typeface.BOLD);
                Danghot.setTypeface(null, Typeface.NORMAL);
@@ -96,7 +105,7 @@ public class fragmentHome extends Fragment {
                 RequestQueue requestQueue= Volley.newRequestQueue(getContext());
 
 
-                JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php", new Response.Listener<JSONArray>() {
+                JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php?area="+a, new Response.Listener<JSONArray>() {
 
                     @Override
                     public void onResponse(JSONArray response) {
@@ -159,6 +168,12 @@ public class fragmentHome extends Fragment {
                         headers.put("Authorization", "Bearer " + up.getToken());
                         return headers;
                     }
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String,String> params=new HashMap<>();
+                        params.put("area",area);
+                        return params;
+                    }
                 };
 
                 requestQueue.add(jsonArrayRequest);
@@ -172,14 +187,16 @@ public class fragmentHome extends Fragment {
             @Override
             public void onClick(View v) {
                 mangReview.clear();
-
+                String temp=area;
+                String a=area.replace(' ','+');
+                area=temp;
                 Moinhat.setTypeface(null, Typeface.NORMAL);
                 Danghot.setTypeface(null, Typeface.BOLD);
                 Gantoi.setTypeface(null, Typeface.NORMAL);
                 RequestQueue requestQueue= Volley.newRequestQueue(getContext());
                 recyclerView.setAdapter(ra2);
 
-                JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php?trending", new Response.Listener<JSONArray>() {
+                JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php?trending&area="+a, new Response.Listener<JSONArray>() {
 
                     @Override
                     public void onResponse(JSONArray response) {
@@ -241,6 +258,12 @@ public class fragmentHome extends Fragment {
                         headers.put("Content-Type", "application/x-www-form-urlencoded");
                         headers.put("Authorization", "Bearer " + up.getToken());
                         return headers;
+                    }
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String,String> params=new HashMap<>();
+                        params.put("area",area);
+                        return params;
                     }
                 };
 

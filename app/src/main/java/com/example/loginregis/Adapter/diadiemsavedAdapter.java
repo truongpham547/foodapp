@@ -254,7 +254,7 @@ public class diadiemsavedAdapter extends RecyclerView.Adapter<diadiemsavedAdapte
 
         final String un=up.getUsrname();
         final int idrv=id;
-        Toast.makeText(context, up.getToken(), Toast.LENGTH_SHORT).show();
+        
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/delreview.php", new Response.Listener<String>() {
             @Override

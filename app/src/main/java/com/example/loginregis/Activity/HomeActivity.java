@@ -16,7 +16,11 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +49,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ProgressDialog progressDialog;
     private static final String TAG = "RegActivity";
     RecyclerView recyclerView;
@@ -57,11 +61,23 @@ public class HomeActivity extends AppCompatActivity {
     SearchView sw;
     Toolbar homeTB;
     Button Dangbai;
+    RelativeLayout spin_parent;
+    Spinner spinner;
+    String district="TP.HCM";
+    static final String[] paths = {"TP. HCM","Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Thủ Đức"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         userProfile= (com.example.loginregis.Model.userProfile) getIntent().getSerializableExtra("userprofile");
+
+        spinner=findViewById(R.id.spinner1);
+        spin_parent=findViewById(R.id.spinner_parent);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(HomeActivity.this,
+                android.R.layout.simple_spinner_item,paths);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 
         Dangbai=findViewById(R.id.btnDangBai);
         Dangbai.setVisibility(View.GONE);
@@ -109,7 +125,7 @@ public class HomeActivity extends AppCompatActivity {
                 progressDialog.setCanceledOnTouchOutside(false);
                 Log.d(TAG,"Register");
                 GetKetQuaSearch(a);
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new fragmentHome(reviewAdapter,1,userProfile)).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new fragmentHome(reviewAdapter,1,userProfile,district)).commit();
                 mangReview.clear();
                 return true;
             }
@@ -119,15 +135,17 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new fragmentHome(reviewAdapter)).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new fragmentHome(reviewAdapter,0,userProfile,district)).commit();
+
 
 
     }
 
     private void GetKetQuaSearch(String keyword) {
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
+        String a=district.replace(' ','+');
 
-        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php?search="+keyword, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php?search="+keyword+"&area="+a, new Response.Listener<JSONArray>() {
 
             @Override
             public void onResponse(JSONArray response) {
@@ -192,6 +210,7 @@ public class HomeActivity extends AppCompatActivity {
                 headers.put("Authorization", "Bearer " + userProfile.getToken());
                 return headers;
             }
+
         };
 
         requestQueue.add(jsonArrayRequest);
@@ -200,8 +219,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private void GetBaiReviewMoiNhat() { //Lấy dữ liệu từ Json cho vào mảng
         RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
-
-        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php", new Response.Listener<JSONArray>() {
+        String a=district.replace(' ','+');
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://52.148.113.133/android/getreview.php?area="+a, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 if(response!=null)
@@ -261,6 +280,12 @@ public class HomeActivity extends AppCompatActivity {
                 headers.put("Authorization", "Bearer " + userProfile.getToken());
                 return headers;
             }
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params=new HashMap<>();
+                params.put("area",district);
+                return params;
+            }
         };
 
         requestQueue.add(jsonArrayRequest);
@@ -274,6 +299,8 @@ public class HomeActivity extends AppCompatActivity {
             Fragment selectedFragment=null;
             if(menuItem.getItemId()==R.id.nav_home)
             {
+                spin_parent.setVisibility(View.VISIBLE);
+                spinner.setVisibility(View.VISIBLE);
                 Dangbai.setVisibility(View.GONE);
                 //Toast.makeText(HomeActivity.this,userProfile.getAva(),Toast.LENGTH_SHORT).show();
                 mangsavedReview.clear();
@@ -281,10 +308,12 @@ public class HomeActivity extends AppCompatActivity {
                 sw.setVisibility(View.VISIBLE);
                 savedAdapter.setCheckFragment(0);
                 GetBaiReviewMoiNhat();
-                selectedFragment=new fragmentHome(reviewAdapter,0,userProfile); //truyền adapter vào cho recyleview trong fragment home
+                selectedFragment=new fragmentHome(reviewAdapter,0,userProfile,district); //truyền adapter vào cho recyleview trong fragment home
             }
             if (menuItem.getItemId()==R.id.nav_save)
             {
+                spin_parent.setVisibility(View.GONE);
+                spinner.setVisibility(View.GONE);
                 Dangbai.setVisibility(View.GONE);
                 sw.setVisibility(View.GONE);
                 homeTB.setTitle("Đã lưu");
@@ -299,6 +328,8 @@ public class HomeActivity extends AppCompatActivity {
             }
             if(menuItem.getItemId()==R.id.nav_user)
             {
+                spin_parent.setVisibility(View.GONE);
+                spinner.setVisibility(View.GONE);
                 savedAdapter.setCheckFragment(0);
                 //Toast.makeText(HomeActivity.this, userProfile.getNgaysinh(), Toast.LENGTH_SHORT).show();
                 sw.setVisibility(View.GONE);
@@ -312,10 +343,12 @@ public class HomeActivity extends AppCompatActivity {
             }
             if(menuItem.getItemId()==R.id.nav_post)
             {
+                spinner.setVisibility(View.GONE);
+                spin_parent.setVisibility(View.GONE);
                 savedAdapter.setCheckFragment(2);
                 mangReview.clear();
                 mangsavedReview.clear();
-                homeTB.setTitle("Bài đã đăng");
+                homeTB.setTitle("Đã đề xuất");
                 homeTB.setTitleTextColor(-1);
                 sw.setVisibility(View.GONE);
                 Dangbai.setVisibility(View.VISIBLE);
@@ -464,6 +497,28 @@ public class HomeActivity extends AppCompatActivity {
         };
 
         requestQueue.add(jsonArrayRequest);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        district=parent.getItemAtPosition(position).toString();
+        spinner.setVisibility(View.VISIBLE);
+
+        Dangbai.setVisibility(View.GONE);
+        //Toast.makeText(HomeActivity.this,userProfile.getAva(),Toast.LENGTH_SHORT).show();
+        mangsavedReview.clear();
+        mangReview.clear();
+        sw.setVisibility(View.VISIBLE);
+        savedAdapter.setCheckFragment(0);
+        GetBaiReviewMoiNhat();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new fragmentHome(reviewAdapter,0,userProfile,district)).commit();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
 
