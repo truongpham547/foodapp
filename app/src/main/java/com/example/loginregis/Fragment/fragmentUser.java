@@ -74,7 +74,7 @@ public class fragmentUser extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View rootView=inflater.inflate(R.layout.fragment_2,container,false);
         circleImageView=rootView.findViewById(R.id.avaFragment);
-        TextView usrname=rootView.findViewById(R.id.username_userFragment);
+        final TextView usrname=rootView.findViewById(R.id.username_userFragment);
         Picasso.get().load(up.getAva()).placeholder(R.drawable.useravatar).error(R.drawable.useravatar).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(circleImageView);
         usrname.setText(up.getHoten());
         final Dialog dialog;
@@ -263,7 +263,7 @@ public class fragmentUser extends Fragment {
             DatePickerDialog.OnDateSetListener birthdayListener;
             @Override
             public void onClick(View v) {
-                final Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Material_Light_Dialog_MinWidth);
+                final Dialog dialog = new Dialog(getContext());
                 dialog.setContentView(R.layout.info_dialog);
 
 
@@ -311,6 +311,7 @@ public class fragmentUser extends Fragment {
                     public void onClick(View v) {
 
                         final String name=ETname.getText().toString();
+                        usrname.setText(name);
                         final String date=ETdate.getText().toString();
                         final String phone=ETphone.getText().toString();
                         boolean valid=true;
