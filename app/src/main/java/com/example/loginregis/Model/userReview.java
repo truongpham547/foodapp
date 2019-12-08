@@ -10,17 +10,27 @@ public class userReview implements Serializable {
     public String userAvatar;
     public Date postDate;
     public String ngaydang;
+    public String hinhanhBinhLuan;
 
     public String getNgaydang() {
         return ngaydang;
     }
 
-    public userReview(String userName, String noidungReview, float userRating, String userAvatar, String ngaydang) {
+    public void setHinhanhBinhLuan(String hinhanhBinhLuan) {
+        this.hinhanhBinhLuan = hinhanhBinhLuan;
+    }
+
+    public String getHinhanhBinhLuan() {
+        return hinhanhBinhLuan;
+    }
+
+    public userReview(String userName, String noidungReview, float userRating, String userAvatar, String ngaydang, String img) {
         this.userName = userName;
         this.noidungReview = noidungReview;
         this.userRating = userRating;
         this.userAvatar = userAvatar;
         this.ngaydang = ngaydang;
+        this.hinhanhBinhLuan=img;
     }
 
     public userReview(String userName, String noidungReview, float userRating, String userAvatar, Date postDate) {

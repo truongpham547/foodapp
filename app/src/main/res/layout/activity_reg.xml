@@ -177,6 +177,7 @@
                 android:layout_height="35dp"
                 android:paddingLeft="10dp"
                 android:text="Đăng nhập"
+                android:textAllCaps="true"
                 android:textStyle="bold"
                 android:textColor="#FFC107"
                 android:textSize="20dp"

@@ -4,16 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.drm.DrmStore;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +42,8 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,9 +54,13 @@ public class VietBaiDanhGia_activity extends AppCompatActivity {
     public static final String EXTRA_DATA1 = "EXTRA_DATA1";
     private static final String TAG = "Post Review";
     Toolbar toolbardanhgia;
-    Button dangBtn;
+    Button dangBtn,dangAnh;
+    Bitmap bitmap;
+    ImageView anhDang;
+    String imgPost=null;
     CircleImageView ava;
     TextView usrName;
+    String hinhAnhResult="";
     RatingBar ratingBar;
     TextInputEditText noidungdanhgia;
     itemDiadiem brv=new itemDiadiem();
@@ -80,6 +92,47 @@ public class VietBaiDanhGia_activity extends AppCompatActivity {
             }
 
         });
+        dangAnh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(VietBaiDanhGia_activity.this);
+                dialog.setContentView(R.layout.image_review);
+                CircleImageView circleImageView2=dialog.findViewById(R.id.avatarhientai);
+
+                Button anhcosan=dialog.findViewById(R.id.chonanh);
+                Button chupanh=dialog.findViewById(R.id.chupanh);
+
+                Button huy=dialog.findViewById(R.id.huycapnhatanh);
+                anhcosan.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent imgintent=new Intent();
+                        imgintent.setType("image/*");
+                        imgintent.setAction(Intent.ACTION_GET_CONTENT);
+                        dialog.dismiss();
+                        startActivityForResult(imgintent,1);
+
+                    }
+                });
+                chupanh.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent imgintent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        dialog.dismiss();
+                        startActivityForResult(imgintent,0);
+
+
+                    }
+                });
+                huy.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
     @Override
     public void onBackPressed() {
@@ -87,7 +140,42 @@ public class VietBaiDanhGia_activity extends AppCompatActivity {
         setResult(Activity.RESULT_CANCELED);
         super.onBackPressed();
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1&&resultCode==RESULT_OK&&data!=null)
+        {
+            Uri path=data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),path);
+                anhDang.setImageBitmap(bitmap);
+                anhDang.setVisibility(View.VISIBLE);
+                ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+                byte[] imgbytes=byteArrayOutputStream.toByteArray();
+                imgPost= Base64.encodeToString(imgbytes,Base64.DEFAULT);
+                //Toast.makeText(this, imgPost, Toast.LENGTH_SHORT).show();
 
+
+            }
+            catch (IOException e){
+
+                e.printStackTrace();
+            }
+        }
+        else if (requestCode==0&&resultCode==RESULT_OK&&data!=null)
+        {
+            bitmap= (Bitmap) data.getExtras().get("data");
+            anhDang.setImageBitmap(bitmap);
+            anhDang.setVisibility(View.VISIBLE);
+            ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+            byte[] imgbytes=byteArrayOutputStream.toByteArray();
+            imgPost= Base64.encodeToString(imgbytes,Base64.DEFAULT);
+            //Toast.makeText(this, imgPost, Toast.LENGTH_SHORT).show();
+
+        }
+    }
     public void showPostSuccess()
     {
         LayoutInflater flat = getLayoutInflater();
@@ -157,6 +245,8 @@ public class VietBaiDanhGia_activity extends AppCompatActivity {
         final int idrv=brv.getID();
         final float userrating=ratingBar.getRating();
         final String noidung=noidungdanhgia.getText().toString();
+
+        final String ImgPost=imgPost;
         StringRequest stringRequest= new StringRequest(Request.Method.POST, "http://52.148.113.133/android/postrating.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -165,14 +255,17 @@ public class VietBaiDanhGia_activity extends AppCompatActivity {
                     JSONObject jsonObject=new JSONObject(response);
 
 
-
+                    //Toast.makeText(VietBaiDanhGia_activity.this, "here", Toast.LENGTH_SHORT).show();
                     String success=jsonObject.getString("success");
                     ratingvalue=jsonObject.getDouble("value");
+                    //Toast.makeText(VietBaiDanhGia_activity.this, success, Toast.LENGTH_SHORT).show();
                     setrating(ratingvalue);
                     if(success.equals("1")){
 
                         showToastSuccess(progressDialog);
-                        userReview ur=new userReview(userInfo.getHoten(),noidungdanhgia.getText().toString(),ratingBar.getRating(),userInfo.getAva(),"Vừa xong");
+
+                       hinhAnhResult="http://52.148.113.133/android/"+"hinhanh/"+userInfo.getUsrname()+brv.getID();
+                        userReview ur=new userReview(userInfo.getHoten(),noidungdanhgia.getText().toString(),ratingBar.getRating(),userInfo.getAva(),"Vừa xong",hinhAnhResult);
 
                         data.putExtra(EXTRA_DATA,ur);
 
@@ -205,15 +298,7 @@ public class VietBaiDanhGia_activity extends AppCompatActivity {
                 }
         )
         {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params=new HashMap<>();
-                params.put("username",un);
-                params.put("idreview",String.valueOf(idrv));
-                params.put("noidung",noidung);
-                params.put("rating",String.valueOf(userrating));
-                return params;
-            }
+
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
@@ -221,6 +306,17 @@ public class VietBaiDanhGia_activity extends AppCompatActivity {
                 headers.put("Content-Type", "application/x-www-form-urlencoded");
                 headers.put("Authorization", "Bearer " + userInfo.getToken());
                 return headers;
+            }
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params=new HashMap<>();
+                params.put("username",un);
+                params.put("idreview",String.valueOf(idrv));
+                params.put("noidung",noidung);
+                params.put("rating",String.valueOf(userrating));
+                if(imgPost!=null&&imgPost!="")
+                params.put("hinhanh",ImgPost);
+                return params;
             }
         };
         RequestQueue requestQueue= Volley.newRequestQueue(VietBaiDanhGia_activity.this);
@@ -236,6 +332,8 @@ public class VietBaiDanhGia_activity extends AppCompatActivity {
 
         dangBtn=findViewById(R.id.dangbtn);
         ava=findViewById(R.id.danhgiaAva);
+        dangAnh=findViewById(R.id.themanhBinhLuan);
+        anhDang=findViewById(R.id.anhBinhLuan);
         usrName=findViewById(R.id.danhgiaUser);
         ratingBar=findViewById(R.id.danhgiaRating);
         noidungdanhgia=findViewById(R.id.danhgiaInput);

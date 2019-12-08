@@ -72,6 +72,31 @@
 
 
    </com.google.android.material.textfield.TextInputEditText>
+    <Button
+        android:id="@+id/themanhBinhLuan"
+        android:textColor="#fff"
+        android:background="@drawable/buttonstyle"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp"
+        android:textSize="17sp"
+        android:drawableLeft="@drawable/ic_photo_camera_grey_900_36dp"
+        android:text="thêm ảnh"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="150dp"
+        android:id="@+id/anhBinhLuan"
+        android:layout_margin="5dp">
+    </ImageView>
 
 
 

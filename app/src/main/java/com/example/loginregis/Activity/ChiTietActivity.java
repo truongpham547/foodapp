@@ -265,9 +265,9 @@ public class ChiTietActivity extends AppCompatActivity {
                             postDate=jsonObject.getString("ngaydang");
                             hinhanh="http://52.148.113.133/android/avatar/"+jsonObject.getString("ava");
                             userRating=jsonObject.getDouble("rating");
+                            String img1="http://52.148.113.133/android/hinhanh/"+jsonObject.getString("hinhanh");
 
-
-                            mangDanhGia.add(new userReview(userName,noidungReview,(float)userRating,hinhanh,postDate));
+                            mangDanhGia.add(new userReview(userName,noidungReview,(float)userRating,hinhanh,postDate,img1));
                             //String a=Integer.toString(mangReview.size());
                             //Toast.makeText(HomeActivity.this,a,Toast.LENGTH_SHORT).show();
                             userReviewAdapter.notifyDataSetChanged();
@@ -353,32 +353,8 @@ public class ChiTietActivity extends AppCompatActivity {
 
 
             if(resultCode == Activity.RESULT_OK) {
-                final userReview ur= (userReview) data.getSerializableExtra(EXTRA_DATA);
-                float ratingavg = 0;
-                ratingavg=data.getFloatExtra("EXTRA_DATA1",(float)2.5);
-                int position;
-
-
-                for(int i=0;i<mangDanhGia.size();i++)
-                {
-                   // Toast.makeText(this, mangDanhGia.get(i).getUserName(), Toast.LENGTH_SHORT).show();
-                    if(mangDanhGia.get(i).getUserName().equals(ur.getUserName()))
-
-                    {
-
-                        mangDanhGia.remove(i);
-                        userReviewAdapter.notifyDataSetChanged();
-                        break;
-                    }
-                }
-
-
-                Collections.reverse(mangDanhGia);
-                mangDanhGia.add(ur);
-                Collections.reverse(mangDanhGia);
-
-                userReviewAdapter.notifyDataSetChanged();
-                rtb.setRating(ratingavg);
+                mangDanhGia.clear();
+                getBinhLuan();
 
             } else {
 

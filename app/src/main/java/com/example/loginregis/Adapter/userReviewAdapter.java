@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginregis.Model.userReview;
 import com.example.loginregis.R;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
@@ -38,6 +40,11 @@ public class userReviewAdapter extends RecyclerView.Adapter<userReviewAdapter.it
 
         return itemHolder;
     }
+    public String path=null;
+    public void setImage(String a)
+    {
+        path=a;
+    }
 
     @Override
     public void onBindViewHolder(@NonNull itemHolder holder, int position) {
@@ -45,8 +52,15 @@ public class userReviewAdapter extends RecyclerView.Adapter<userReviewAdapter.it
         holder.userName.setText(userReview.getUserName());
         holder.userRating.setRating(userReview.getUserRating());
         holder.postDate.setText(( userReview.getNgaydang()));
+
         holder.content.setText(userReview.getNoidungReview());
         Picasso.get().load(userReview.getUserAvatar()).placeholder(R.drawable.useravatar).error(R.drawable.useravatar).into(holder.imgAvatar);
+
+            if (userReview.getHinhanhBinhLuan().contains(".jpg")){
+               holder.hinhBL.setVisibility(View.VISIBLE);
+                Picasso.get().load(userReview.getHinhanhBinhLuan()).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(holder.hinhBL);}
+
+
     }
 
     @Override
@@ -61,6 +75,7 @@ public class userReviewAdapter extends RecyclerView.Adapter<userReviewAdapter.it
         public TextView postDate;
         public TextView content;
         public RatingBar userRating;
+        public ImageView hinhBL;
         public itemHolder(@NonNull View itemView) {
             super(itemView);
             imgAvatar=itemView.findViewById(R.id.userAvatar);
@@ -68,6 +83,7 @@ public class userReviewAdapter extends RecyclerView.Adapter<userReviewAdapter.it
             postDate=itemView.findViewById(R.id.ngaydang);
             content=itemView.findViewById(R.id.noidungReview);
             userRating=itemView.findViewById(R.id.userRating);
+            hinhBL=itemView.findViewById(R.id.cmtimg);
         }
     }
 }

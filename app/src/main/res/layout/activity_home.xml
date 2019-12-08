@@ -37,26 +37,25 @@
        android:textAlignment="center"
        android:padding="0dp"
        android:backgroundTint="@color/white">
+
        <Spinner
 
            android:id="@+id/spinner1"
-           android:layout_height="match_parent"
            android:layout_width="match_parent"
+           android:layout_height="match_parent"
 
 
            android:layout_alignParentRight="true"
-           android:textAlignment="center"
+           android:layout_marginRight="1dp"
 
 
            android:layout_marginBottom="4dp"
 
-           android:layout_marginRight="2dp"
-           android:theme="@style/ThemeOverlay.AppCompat.Light"
+           android:spinnerMode="dropdown"
+           android:textAlignment="center"
 
 
-
-
-           android:spinnerMode="dropdown"/>
+           android:theme="@style/ThemeOverlay.AppCompat.Light" />
 
    </RelativeLayout>
 
